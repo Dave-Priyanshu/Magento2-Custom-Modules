@@ -1,0 +1,15 @@
+<?php
+// echo $block->getLogoSrc(); exit; ?>
+<?php if ($block->getPageTitle()): ?>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="<?= $block->escapeHtml($block->getPageTitle()); ?>" />
+    <meta property="og:description" content="<?= $block->escapeHtml($block->getPageDescription() ); ?>" />
+    <meta property="og:url" content="<?= $block->escapeHtml($block->getPageUrl()); ?>" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<?= $block->escapeHtml($block->getPageTitle()); ?>" />
+    <meta name="twitter:description" content="<?= $block->escapeHtml($block->getPageDescription()); ?>" />
+    <meta name="twitter:url" content="<?= $block->escapeHtml($block->getPageUrl()); ?>" />
+<?php endif; ?>

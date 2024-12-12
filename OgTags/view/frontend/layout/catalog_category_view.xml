@@ -1,0 +1,7 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="head.additional">
+            <block class="Priyanshu\OgTags\Block\Category\Category" name="og_tags_cat" template="Priyanshu_OgTags::category.phtml" />
+        </referenceContainer>
+    </body>
+</page>

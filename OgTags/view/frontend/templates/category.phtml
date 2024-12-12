@@ -1,0 +1,13 @@
+<?php if ($block->getCategory()): ?>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="<?= $block->escapeHtml($block->getCategoryName()); ?>" />
+    <meta property="og:description" content="<?= $block->escapeHtml($block->getCategoryDescription()); ?>" />
+    <meta property="og:url" content="<?= $block->escapeHtml($block->getCategoryUrl()); ?>" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<?= $block->escapeHtml($block->getCategoryName()); ?>" />
+    <meta name="twitter:description" content="<?= $block->escapeHtml($block->getCategoryDescription()); ?>" />
+    <meta name="twitter:url" content="<?= $block->escapeHtml($block->getCategoryUrl()); ?>" />
+<?php endif; ?>
