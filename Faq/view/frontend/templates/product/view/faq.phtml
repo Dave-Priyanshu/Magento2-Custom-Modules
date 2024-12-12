@@ -1,0 +1,19 @@
+<?php
+/** @var $block \Priyanshu\Faq\Block\Faq */
+$faqData = $block->getFaqData();
+?>
+<div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <?php if(!empty($faqData)): ?>
+    <ul>
+        <?php foreach ($faqData as $faq): ?>
+            <li>
+                <strong>Question: <?= $faq['question'] ?></strong>
+                <p>Answer: <?= $faq['answer'] ?></p>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php else: ?>
+    <p>No FAQs available for this product.</p>
+    <?php endif; ?>
+</div>

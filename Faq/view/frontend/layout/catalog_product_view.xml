@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.details">
+            <!-- <block class="Priyanshu\Faq\Block\Faq" name="product.faq" template="Priyanshu_Faq::faq.phtml"> -->
+            <block class="Priyanshu\Faq\Block\Faq" name="product.faq.tab" as="faq" group="detailed_info" template="Priyanshu_Faq::product/view/faq.phtml" after="reviews">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Product Question</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
+

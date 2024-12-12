@@ -1,0 +1,19 @@
+.faq-section {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.faq-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.faq-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.faq-section li {
+    margin-bottom: 10px;
+}
