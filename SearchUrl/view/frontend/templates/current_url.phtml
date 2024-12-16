@@ -1,0 +1,10 @@
+<?php 
+$categoryUrl = $block->getCategoryUrlFromSearchParam();
+$homepageUrl = $block->getHomepageUrl();
+?>
+
+<?php if ($block->isHomepage()): ?>
+    <link rel="canonical" href="<?php echo $block->escapeUrl($homepageUrl); ?>"/>
+<?php elseif ($categoryUrl): ?>
+    <link rel="canonical" href="<?php echo $block->escapeUrl($categoryUrl); ?>"/>
+<?php endif; ?>
