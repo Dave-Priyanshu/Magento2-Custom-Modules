@@ -83,6 +83,7 @@ You can easily add more questions for each letter or modify the existing ones.
 
 This version is perfect for stores with a wide variety of products, each requiring detailed and specific FAQ content.
 
+---
 
 ## 🔧 Customization
 
