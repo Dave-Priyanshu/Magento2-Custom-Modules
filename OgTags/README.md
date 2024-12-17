@@ -161,7 +161,7 @@ If the Open Graph or Twitter Card tags are not appearing as expected:
 
 ## 👥 Contact Information
 
-For any inquiries or issues, please contact me at **[priyanshu123@gmail.com](mailto:priyanshu123@gmail.com)**. I will be happy to assist you!
+For any inquiries or issues, please contact me at **[davepriyanshu2001@gmail.com](mailto:davepriyanshu2001@gmail.com)**. I will be happy to assist you!
 
 ---
 
