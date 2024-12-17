@@ -167,8 +167,7 @@ For any inquiries or issues, please contact me at **[priyanshu123@gmail.com](mai
 
 ## 🔑 License
 
-This module is open-source and free to use. You are welcome to modify it according to your business needs.
+This module is open-source and free to use. You are welcome to modify it according to your business needs.😊
 
 ---
 
-Let me know if you need further adjustments or explanations! 😊
