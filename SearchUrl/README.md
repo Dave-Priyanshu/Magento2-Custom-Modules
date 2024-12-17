@@ -34,19 +34,19 @@ To install this module in your Magento 2 instance:
    git clone <repo-url> app/code/Priyanshu/SearchUrl
    ```
 
-2. Run the following commands to enable the module:
+2. Enable the module:
+
+   ```bash
+   php bin/magento module:enable Priyanshu_SearchUrl
+   ```
+   
+3. Run the following commands to enable the module:
 
    ```bash
    php bin/magento setup:upgrade
    php bin/magento setup:di:compile
    php bin/magento cache:clean
    php bin/magento cache:flush
-   ```
-
-3. Enable the module:
-
-   ```bash
-   php bin/magento module:enable Priyanshu_SearchUrl
    ```
 
 ---
