@@ -71,7 +71,8 @@ The module will generate and inject the appropriate CSS into the category page, 
 ---
 
 ## Screenshots :camera:
-*Include screenshots of the admin configuration and frontend changes if available.*
+![image](https://github.com/user-attachments/assets/0a68c342-63ce-4de7-be2b-d890000db019)
+
 
 ---
 
