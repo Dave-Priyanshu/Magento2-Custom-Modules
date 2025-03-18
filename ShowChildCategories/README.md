@@ -110,7 +110,7 @@ Priyanshu/
 
 ## Alternative Version 📦
 
-I have also created another version of this module (available at [Git Repo Link](https://github.com/yourusername/another-magento2-child-categories)) where **only the immediate subcategories** are displayed (non-recursive). 
+I have also created another version of this module (available at [Git Repo Link](https://github.com/Dave-Priyanshu/Magento2-Custom-Modules/tree/main/ShowChildCategories-2)) where **only the immediate subcategories** are displayed (non-recursive). 
 
 **Note on Styling:**  
 The CSS styling is not included because style is a very subjective matter and can vary from project to project. If you need the CSS that I have used, please feel free to connect with me.
