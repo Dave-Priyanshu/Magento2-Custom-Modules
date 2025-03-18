@@ -81,13 +81,8 @@ Contributions are welcome! Please fork this repository and submit a pull request
 
 ---
 
-## License :page_facing_up:
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 ## Support :telephone_receiver:
 If you encounter any issues or have questions, please open an issue on this repository.
 
 Happy coding! :rocket:
-```
+
