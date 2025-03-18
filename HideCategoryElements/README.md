@@ -1,4 +1,4 @@
-```markdown
+
 # Priyanshu Hide Category Elements Module
 
 [![Magento 2](https://img.shields.io/badge/Magento-2.x-blue)](https://magento.com) [![PHP](https://img.shields.io/badge/PHP-7.3%2B-blue)](https://php.net)
