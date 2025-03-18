@@ -1,0 +1,65 @@
+<?php
+/** @var $block \Magemonkeys\ShowChildCategories\Block\Category\SubcategoryList */
+$currentCategory = $block->getCurrentCategory();
+if (!$currentCategory) {
+    return;
+}
+
+// Check if the "show_child_categories" attribute is enabled
+if (!$currentCategory->getData('show_child_categories')) {
+    return;
+}
+
+$categoryName    = $currentCategory->getName();
+$categoryImage   = (method_exists($currentCategory, 'getImageUrl'))
+    ? $currentCategory->getImageUrl() : '';
+$childCategories = $currentCategory->getChildrenCategories();
+?>
+
+<!-- Main Category Section -->
+<div class="current-category">
+    <div class="current-category-cnt">
+        <h1 class="main-hub-title"><?= $categoryName; ?></h1>
+        <?php echo $block->getChildHtml('category.description') ?>
+    </div>
+</div>
+
+<?php
+// Helper function to render subcategories (if needed recursively)
+function renderSubCategoryList($category) {
+    $subCategories = $category->getChildrenCategories();
+    if (!$subCategories->count()) {
+        return '';
+    }
+    $html = "";
+    foreach ($subCategories as $subCategory) {
+        $html .= '<li class="item">';
+        $html .= '<a class="anchors" href="' . $subCategory->getUrl() . '">';
+        $html .= '<span class="arrow">➔</span>';
+        $html .= '<span class="title">' . $subCategory->getName() . '</span>';
+        $html .= '</a>';
+        $html .= '</li>';
+    }
+    return $html;
+}
+?>
+
+<!-- Child Categories Section -->
+<?php if (count($childCategories) > 0): ?>
+<div class="container123">
+    <div class="container-content">
+        <ul class="article-category-list">
+            <?php foreach ($childCategories as $childCategory): ?>
+                <?php if ($childCategory->getId() == $currentCategory->getId()) continue; ?>
+                <li class="item">
+                    <a class="anchor-child" href="<?= $childCategory->getUrl() ?>">
+                        <h2 class="headline h3"><?= $childCategory->getName(); ?></h2>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<?php else: ?>
+    <p>No child categories found.</p>
+<?php endif; ?>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>        
+        <referenceContainer name="content">
+            <block class="Priyanshu\ShowChildCategories\Block\Category\SubcategoryList"
+                   name="custom-category-content-list"
+                   before="-"
+                   template="Priyanshu_ShowChildCategories::custom-category-content.phtml">
+                <arguments>
+                    <argument name="image" xsi:type="object">Magento\Catalog\ViewModel\Category\Image</argument>
+                    <argument name="output" xsi:type="object">Magento\Catalog\ViewModel\Category\Output</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

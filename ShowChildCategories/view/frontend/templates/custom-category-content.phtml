@@ -1,0 +1,116 @@
+<?php
+/** @var \Magemonkeys\ShowChildCategories\Block\Category\SubcategoryList $block */
+
+// Retrieve the current category and its details using block methods.
+$currentCategory = $block->getCurrentCategory();
+$categoryName    = $block->getCategoryName();
+$categoryImage   = $block->getCategoryImage(); // Retrieves the current category image URL.
+$childCategories = $block->getChildCategories();
+// Get the per‑category maximum depth setting (stored in the "max_child_depth" attribute).
+$maxLevels = $block->getCategoryMaxDepth();
+?>
+<?php
+/**
+ * Recursive function to render subcategories.
+ *
+ * This function loops through a given category's children and outputs an HTML list.
+ * It stops recursing when the current level exceeds the maximum depth.
+ *
+ * @param \Magento\Catalog\Model\Category $category The category to render.
+ * @param int $currentLevel The current recursion level.
+ * @param int $maxLevel The maximum allowed recursion level.
+ * @param \Magemonkeys\ShowChildCategories\Block\Category\SubcategoryList $block The block instance (for helper methods).
+ * @return string HTML markup for the subcategory list.
+ */
+function renderSubCategoryList($category, $currentLevel, $maxLevel, $block)
+{
+    if ($currentLevel > $maxLevel) {
+        return '';
+    }
+    
+    $subCategories = $category->getChildrenCategories();
+    if (!$subCategories->count()) {
+        return '';
+    }
+    
+    $html = '<ul class="subarticles">';
+    foreach ($subCategories as $subCategory) {
+        $html .= '<li class="item">';
+        $html .= '<a class="anchors" href="' . $subCategory->getUrl() . '">';
+        $html .= '<span class="arrow">➔</span>';
+        $html .= '<span class="title">' . $subCategory->getName() . '</span>';
+        $html .= '</a>';
+        
+        // // Optionally, display the subcategory image.
+        // $subImage = $block->getCategoryImageUrl($subCategory->getId());
+        // if ($subImage) {
+        //     $html .= '<a class="subcat-image" href="' . $subCategory->getUrl() . '">';
+        //     $html .= '<img src="' . $subImage . '" alt="' . $subCategory->getName() . '">';
+        //     $html .= '</a>';
+        // }
+        
+        // Recursively render any further subcategories.
+        $html .= renderSubCategoryList($subCategory, $currentLevel + 1, $maxLevel, $block);
+        $html .= '</li>';
+    }
+    $html .= '</ul>';
+    
+    return $html;
+}
+?>
+<!-- Basic Category Section -->
+<?php if ($currentCategory && $currentCategory->getData('show_child_categories') == 1): ?>
+<div class="kunskapscenter">
+    <div class="current-category">
+        <div class="current-category-cnt">
+            <h1 class="main-hub-title"><?= $categoryName; ?></h1>
+            <?php /*
+            if ($categoryImage): ?>
+                <img src="<?= $categoryImage; ?>" alt="<?= $categoryName; ?>">
+            <?php endif; */ ?>
+            <!-- Render the category description using Magento's output helper -->
+            <?= $block->getOutput()->categoryAttribute($currentCategory, $currentCategory->getDescription() ?? '', 'description'); ?>
+        </div>
+    </div>
+    <!-- Conditionally render the Child Categories Section -->
+    <?php if ($childCategories && count($childCategories) > 0): ?>
+        <div class="container123">
+            <div class="container-content">
+                <ul class="article-category-list">
+                    <?php foreach ($childCategories as $childCategory): ?>
+                        <?php if ($childCategory->getId() == $currentCategory->getId()) continue; ?>
+                        <li class="item">
+                            <a class="anchor" href="<?= $childCategory->getUrl(); ?>">
+                                <?php 
+                                // using block to get child image
+                                $childImageUrl = $block->getCategoryImageUrl($childCategory->getId());
+                                ?>
+                                <?php if ($childImageUrl): ?>
+                                    <img alt="<?= $childCategory->getName(); ?>" src="<?= $childImageUrl; ?>">
+                                <?php endif; ?>
+                            </a>
+                            <!-- Display child category name -->
+                            <a class="anchor-child" href="<?= $childCategory->getUrl(); ?>">
+                                <h2 class="headline h3"><?= $childCategory->getName(); ?></h2>
+                            </a>
+                            <!-- Render recursive subcategories starting from level 1 -->
+                            <?= renderSubCategoryList($childCategory, 1, $maxLevels, $block); ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
+<style>
+#page-title-heading {
+    display: none;
+}
+.category-view .category-image {
+    display: none;
+}
+.category-view .category-description {
+    display: none;
+}
+</style>
+<?php endif; ?>
