@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="general">
+        <field name="hide_category_elements">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Hide Category Elements</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/multiselect</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">112</item>
+                    <item name="dataScope" xsi:type="string">hide_category_elements</item>
+                    <item name="options" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Hide Page Title</item>
+                            <item name="value" xsi:type="string">page_title_heading</item>
+                        </item>
+                        <item name="1" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Hide Category Image</item>
+                            <item name="value" xsi:type="string">category_image</item>
+                        </item>
+                        <item name="2" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Hide Category Description</item>
+                            <item name="value" xsi:type="string">category_description</item>
+                        </item>
+                    </item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        When an option is selected, the corresponding category element (page title, image, or description) will be hidden on the frontend. You can select multiple options by using "Shift+Click", and deselect items using "Ctrl+Right Click".
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

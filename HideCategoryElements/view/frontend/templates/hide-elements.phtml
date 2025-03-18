@@ -1,0 +1,8 @@
+<?php
+/** @var \Priyanshu\HideCategoryElements\Block\Category\HideElements $block */
+$css = $block->getHideElementsCss();
+if ($css): ?>
+    <style type="text/css">
+        <?= $css ?>
+    </style>
+<?php endif; ?>
