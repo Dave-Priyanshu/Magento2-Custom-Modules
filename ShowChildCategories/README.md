@@ -1,6 +1,4 @@
 
----
-
 # Priyanshu Show Child Categories Magento 2 Module
 
 The **Priyanshu_ShowChildCategories** module extends Magento 2’s category functionality by providing a way to display child categories on the frontend category view. In addition to rendering subcategories recursively, it introduces two custom attributes that let you control whether to show child categories and define the maximum depth for recursive category display.
