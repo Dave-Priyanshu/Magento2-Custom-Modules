@@ -1,0 +1,101 @@
+<?php
+/** @var \Priyanshu\ShowChildCategories\Block\Category\SubcategoryList $block */
+$currentCategory = $block->getCurrentCategory();
+
+// Bypass custom rendering for Category ID 153 (KUNSKAPSCENTER)
+if ($currentCategory && $currentCategory->getId() == 153) {
+    return;
+}
+
+$categoryName    = $block->getCategoryName();
+$categoryImage   = $block->getCategoryImage();
+$childCategories = $block->getChildCategories();
+?>
+
+<?php if ($currentCategory && $currentCategory->getData('show_child_categories') == 1): ?>
+<div class="kunskapscenter">
+    <div class="current-category">
+        <div class="current-category-cnt">
+            <h1 class="main-hub-title"><?= $categoryName; ?></h1>
+            <?= $block->getOutput()->categoryAttribute($currentCategory, $currentCategory->getDescription() ?: '', 'description'); ?>
+        </div>
+    </div>
+    <?php if ($childCategories && count($childCategories) > 0): ?>
+            <div class="container-content">
+                <!-- <ul class="article-category-list"> -->
+                    <?php foreach ($childCategories as $childCategory): ?>
+                        <?php if ($childCategory->getId() == $currentCategory->getId()) continue; ?>
+                        <ul class="subarticles">
+                            <li class="item">
+                                    <a class="anchors" href="<?= $childCategory->getUrl(); ?>">
+                                        <span class="arrow">➔</span>
+                                        <span class="title"><?= $childCategory->getName(); ?></span>
+                                    </a>
+                            </li>
+                        </ul>
+                    <?php endforeach; ?>
+                <!-- </ul> -->
+            </div>
+    <?php endif; ?>
+</div>
+<style>
+#page-title-heading {
+    display: none;
+}
+.category-view .category-image {
+    display: none;
+}
+.category-view .category-description {
+    display: none;
+}
+.kunskapscenter .subarticles .item {
+    margin: 0 20px 0 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ddb55e;
+    color: #000;
+    font-size: .9em;
+    border-radius: 4px;
+}
+.kunskapscenter .subarticles {
+    list-style: none;
+    padding: 0 20px 15px;
+    display: flex;
+    flex-direction: row;
+    margin-top: auto;
+}
+.kunskapscenter .container-content {
+    margin: 40px 0 50px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 100%;
+}
+.kunskapscenter .subarticles {
+    list-style: none;
+    padding: 0 20px 9px;
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+@media (max-width:1200px){
+    .kunskapscenter .container-content {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+}
+}
+
+@media (max-width:767px){
+    .kunskapscenter .container-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+}
+}
+
+</style>
+<?php endif; ?>
